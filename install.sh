@@ -1,16 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
 # Update package
 opkg update
 
 #install packages
-opkg install iptables iptables-mod-nat-extra redsocks
+opkg install redsocks
 
 #Then run this line
-service redsocks stop && mv /etc/redsocks.conf /etc/redsocks.conf.bkp && cd /etc && wget https://github.com/emonbhuiyan/BDIX-OpenWRT/raw/main/bdix.conf && mv /etc/init.d/redsocks /etc/init.d/redsocks.bkp && cd /etc/init.d && wget https://github.com/emonbhuiyan/BDIX-OpenWRT/raw/main/bdix && chmod +x /etc/init.d/bdix
+service stop_redsocks && mv /opt/etc/redsocks.conf /opt/etc/redsocks.conf.bkp && cd /opt/etc && wget https://raw.githubusercontent.com/sabadia/bdix-asuswrt-merlin/main/redsocks.conf && mv /opt/etc/init.d/S23redsocks /opt/etc/init.d/S23redsocks.bkp && cd /opt/etc/init.d && wget https://raw.githubusercontent.com/sabadia/bdix-asuswrt-merlin/main/S23redsocks && chmod +x /opt/etc/init.d/S23redsocks
 
 cd /
-clear
 
-
-echo -e "Thanks for installing. Follow me for more updates: https://fb.me/emoncontact"
+echo -e "Thanks for installing bdix script."

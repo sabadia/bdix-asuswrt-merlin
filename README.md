@@ -11,15 +11,14 @@ Installation process described in this video tutorial:
 # BDIX proxy service installation:
 Run the following command to install BDIX proxy extension automatically:
 ```
-cd /tmp && wget https://github.com/emonbhuiyan/BDIX-OpenWRT/raw/main/install.sh && chmod +x install.sh && clear && sh install.sh && rm install.sh
+cd /tmp && wget https://raw.githubusercontent.com/sabadia/bdix-asuswrt-merlin/main/install.sh && chmod +x install.sh && clear && sh install.sh && rm install.sh
 ```
 Just run it and wait for completion. And enjoy.
 
 ## To update proxy IP, Port, Username & Password
 ```
-vi /etc/bdix.conf
+nano /opt/etc/redsocks.conf
 ```
-After the update press `esc` key then `:wq` to save or `:q!` to discard changes
 
 <img src="https://i.imgur.com/8uLp8I9.png" alt="Update proxy IP, Port, Username & Password" width="500"/>
 
@@ -27,27 +26,17 @@ After the update press `esc` key then `:wq` to save or `:q!` to discard changes
 
 ### To start BDIX proxy bypass
 ```
-service bdix start
+/opt/etc/init.d/S23redsocks start
 ```
 
 ### To stop BDIX proxy bypass
 ```
-service bdix stop
+/opt/etc/init.d/S23redsocks stop
 ```
 
 ### To restart BDIX proxy bypass
 ```
-service bdix restart
+/opt/etc/init.d/S23redsocks restart
 ```
 
-### To enable BDIX auto boot-start proxy
-```
-service bdix enable
-```
-
-### To disable BDIX auto boot-start proxy
-```
-service bdix disable
-```
-
-Thanks for following my tutorial. Follow me to get more interesting tips and tricks.
+Thanks for following my tutorial.
